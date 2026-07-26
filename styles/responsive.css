@@ -63,25 +63,18 @@
   }
 
   .hero-premium {
-    align-items: flex-end;
-
-    background-image:
-      linear-gradient(
-        to bottom,
-        rgba(4, 10, 18, 0.05) 0%,
-        rgba(4, 10, 18, 0.15) 35%,
-        rgba(4, 10, 18, 0.75) 62%,
-        rgba(4, 10, 18, 0.98) 85%
-      ),
-      url("/images/hero-speakers-mobile.jpg");
-
-    background-size: cover;
-    background-position: center top;
+    align-items: flex-start;
+    min-height: auto;
+    background-image: url("/images/hero-speakers-mobile.jpg");
+    background-size: 100% auto;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-color: #05080f;
   }
 
   .hero-premium-inner {
-    padding-top: 420px;
-    padding-bottom: 92px;
+    padding-top: calc(100vw * 1.15);
+    padding-bottom: 64px;
   }
 
   .hero-copy {
@@ -144,8 +137,8 @@
   }
 
   .hero-premium-inner {
-    padding-top: 320px;
-    padding-bottom: 70px;
+    padding-top: calc(100vw * 1.15);
+    padding-bottom: 56px;
   }
 
   .hero-premium h1 {
