@@ -9,15 +9,19 @@ export function StickyCta() {
     const onScroll = () => {
       const scrolledPastHero = window.scrollY > 700;
 
-      // Esconde quando a própria seção de ingressos está visível (evita redundância).
-      const tickets = document.getElementById("ingressos");
-      let ticketsInView = false;
-      if (tickets) {
-        const rect = tickets.getBoundingClientRect();
-        ticketsInView = rect.top < window.innerHeight * 0.85 && rect.bottom > 0;
-      }
+      // Esconde quando ingressos, lista de espera ou rodapé estão visíveis
+      // (evita redundância e impede o botão de cobrir conteúdo no fim da página).
+      const isInView = (el: Element | null) => {
+        if (!el) return false;
+        const rect = el.getBoundingClientRect();
+        return rect.top < window.innerHeight * 0.85 && rect.bottom > 0;
+      };
+      const blocked =
+        isInView(document.getElementById("ingressos")) ||
+        isInView(document.getElementById("academy")) ||
+        isInView(document.querySelector("footer"));
 
-      setVisible(scrolledPastHero && !ticketsInView);
+      setVisible(scrolledPastHero && !blocked);
     };
 
     onScroll();
