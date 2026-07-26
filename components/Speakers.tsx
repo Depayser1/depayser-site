@@ -32,7 +32,7 @@ const speakers: Speaker[] = [
     name: "Ricardo Carvalho",
     role: "Superação & Recomeço",
     photo: "/images/ricardo.png",
-    bio: "Do Exército Brasileiro à Legião Estrangeira Francesa, do mundo corporativo à cozinha e ao empreendedorismo na Europa. Hoje à frente da Seeds Marketing Digital, compartilha uma trajetória real de superação, recomeço e resiliência.",
+    bio: "Uma vida feita de recomeços: do Exército Brasileiro à Legião Estrangeira Francesa, da Petrobras às cozinhas da França, até se reinventar como empresário na Europa à frente da Seeds Marketing Digital. Fala com autoridade sobre superação, coragem e resiliência — para quem decidiu construir uma nova vida longe de casa.",
     objectPosition: "center top",
   },
 ];
