@@ -10,7 +10,7 @@ export const siteConfig = {
   dateLabel: "18 de outubro de 2026",
   // Data/hora de início do evento (Paris, UTC+2 no horário de verão) — usada pelo contador regressivo
   eventDateISO: "2026-10-18T10:00:00+02:00",
-  timeLabel: "10h às 18h",
+  timeLabel: "a partir das 10h",
   venue: "HI Hostel Paris Yves Robert",
   address: "20 Espl. Nathalie Sarraute, 75018 Paris",
   language: "português",

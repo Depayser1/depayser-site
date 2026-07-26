@@ -30,7 +30,7 @@ const faqItems: FaqItem[] = [
       <>
         <p>
           <strong>Classic (39€):</strong> acesso ao ciclo de palestras e ao momento de
-          networking, das 10h às 18h.
+          networking, a partir das 10h.
         </p>
         <p>
           <strong>Classic Duo (69€):</strong> dois ingressos Classic para você vir com
@@ -71,7 +71,7 @@ const faqItems: FaqItem[] = [
     answer: (
       <p>
         No {siteConfig.venue} — {siteConfig.address}. É de fácil acesso pelo transporte
-        público de Paris. No dia {siteConfig.dateLabel}, das {siteConfig.timeLabel}.{" "}
+        público de Paris. No dia {siteConfig.dateLabel}, {siteConfig.timeLabel}.{" "}
         <a
           href="https://maps.google.com/?q=20+Espl.+Nathalie+Sarraute+75018+Paris"
           target="_blank"
