@@ -1,0 +1,61 @@
+.countdown {
+  display:flex;
+  align-items:center;
+  gap:16px;
+  flex-wrap:wrap;
+  min-height:64px;
+}
+.countdown-caption {
+  color:var(--champagne);
+  font-size:.66rem;
+  font-weight:750;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+}
+.countdown-units {
+  display:inline-flex;
+  gap:10px;
+}
+.countdown-unit {
+  display:grid;
+  justify-items:center;
+  gap:4px;
+  min-width:60px;
+  padding:12px 10px;
+  border:1px solid rgba(200,163,106,.3);
+  border-radius:14px;
+  background:rgba(7,17,31,.4);
+  backdrop-filter:blur(8px);
+}
+.countdown-unit strong {
+  font-family:var(--font-serif);
+  font-size:1.7rem;
+  font-weight:400;
+  line-height:1;
+  color:var(--ivory);
+  font-variant-numeric:tabular-nums;
+}
+.countdown-unit span {
+  font-size:.6rem;
+  font-weight:700;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:var(--muted);
+}
+.countdown-done span {
+  color:var(--champagne-light);
+  font-size:.9rem;
+  font-weight:700;
+  letter-spacing:.02em;
+}
+
+.hero-countdown { margin-top:30px; }
+
+/* Variante em fundo claro (seção de ingressos usa fundo escuro, mas garante contraste em light) */
+.section.light .countdown-unit strong { color:var(--ink); }
+.section.light .countdown-caption { color:var(--champagne-dark); }
+
+@media (max-width:560px) {
+  .countdown-unit { min-width:52px; padding:10px 8px; }
+  .countdown-unit strong { font-size:1.4rem; }
+}

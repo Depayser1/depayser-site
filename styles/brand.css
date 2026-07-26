@@ -1,0 +1,68 @@
+/* Banda de assinatura com a marca conceitual */
+.brand-signature {
+  padding:96px 0;
+  background:
+    radial-gradient(circle at 50% 22%, rgba(198,160,82,.1), transparent 46%),
+    linear-gradient(180deg, var(--ink), var(--grafite));
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+}
+.brand-signature-inner {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  text-align:center;
+}
+.brand-signature-mark {
+  position:relative;
+  width:clamp(180px, 24vw, 280px);
+  aspect-ratio:2079 / 2600;
+}
+.brand-signature-mark img { object-fit:contain; }
+.brand-signature-phrase {
+  margin:26px 0 0;
+  font-family:var(--font-serif);
+  font-size:clamp(1.7rem, 3vw, 2.6rem);
+  line-height:1.15;
+  color:var(--ivory);
+}
+.brand-signature-sub {
+  max-width:520px;
+  margin:14px 0 0;
+  color:rgba(243,236,221,.66);
+  font-size:.95rem;
+  line-height:1.6;
+}
+
+/* Grafismo: losango dourado com filetes (separador) */
+.divider-losango {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  width:100%;
+  max-width:220px;
+  margin:18px auto 0;
+}
+.divider-losango::before,
+.divider-losango::after {
+  content:"";
+  height:1px;
+  flex:1;
+}
+.divider-losango::before { background:linear-gradient(90deg, transparent, var(--champagne)); }
+.divider-losango::after { background:linear-gradient(90deg, var(--champagne), transparent); }
+.divider-losango span {
+  width:7px;
+  height:7px;
+  flex:0 0 auto;
+  transform:rotate(45deg);
+  background:var(--champagne);
+}
+/* alinhado à esquerda quando o título não é centralizado */
+.divider-losango.is-left { margin-inline:0; }
+
+/* Marca no rodapé */
+.footer-brand { margin-bottom:16px; }
+.footer-brand .brand-mark img { height:46px; }
+.footer-brand .brand-wordmark img { height:28px; }

@@ -1,0 +1,224 @@
+@media (max-width: 1180px) {
+  .hero-copy {
+    width: min(650px, 56%);
+    margin-left: 12px;
+  }
+
+  .hero-premium h1 {
+    font-size: clamp(3.4rem, 5.2vw, 5.3rem);
+  }
+}
+
+@media (max-width: 1050px) {
+  .nav-links {
+    gap: 18px;
+  }
+
+  .nav-links > .cta {
+    margin-left: 2px;
+    padding-inline: 22px;
+  }
+
+  .story-meaning-grid {
+    grid-template-columns: 1fr 0.9fr;
+    gap: 42px;
+  }
+
+  .story-editorial-image {
+    min-height: 560px;
+  }
+
+  .story-experience-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+}
+
+@media (max-width: 920px) {
+  .section {
+    padding: 86px 0;
+  }
+
+  .nav-links a:not(.cta) {
+    display: none;
+  }
+
+  .nav-links {
+    margin-left: auto;
+  }
+
+  .grid-2,
+  .schedule-grid,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .speakers-event-poster {
+    min-height: 700px;
+  }
+
+  .journey-watson-image {
+    max-width: 440px;
+    margin-inline: auto;
+  }
+
+  .hero-premium {
+    align-items: flex-end;
+
+    background-image:
+      linear-gradient(
+        to bottom,
+        rgba(4, 10, 18, 0.08) 0%,
+        rgba(4, 10, 18, 0.22) 28%,
+        rgba(4, 10, 18, 0.82) 58%,
+        rgba(4, 10, 18, 0.99) 82%
+      ),
+      url("/images/depayser-poster.png");
+
+    background-position: center, center top;
+  }
+
+  .hero-premium-inner {
+    padding-top: 420px;
+    padding-bottom: 92px;
+  }
+
+  .hero-copy {
+    width: 100%;
+    max-width: 620px;
+    margin-left: 0;
+  }
+
+  .hero-premium h1 {
+    max-width: 560px;
+    font-size: clamp(3rem, 9vw, 4.9rem);
+  }
+
+  .story-meaning-grid,
+  .story-experience-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .story-experience-copy {
+    position: static;
+  }
+
+  .story-statement {
+    grid-template-columns: 50px minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .story-meaning-title span {
+    white-space: normal;
+  }
+}
+
+/* Regras de ingresso agora vivem em styles/tickets.css (cards com botão sempre visível). */
+
+@media (max-width: 600px) {
+  .brand-mark img { height: 42px; }
+  .brand-wordmark img { height: 26px; }
+
+  .section {
+    padding: 70px 0;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+
+  .cta {
+    width: 100%;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .hero-premium {
+    min-height: auto;
+    background-position: center, center top;
+  }
+
+  .hero-premium-inner {
+    padding-top: 320px;
+    padding-bottom: 70px;
+  }
+
+  .hero-premium h1 {
+    max-width: 100%;
+    margin-top: 18px;
+    font-size: clamp(2.65rem, 12vw, 4rem);
+    line-height: 0.96;
+  }
+
+  .hero-description {
+    font-size: 0.96rem;
+  }
+
+  .hero-event-info {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    margin-top: 30px;
+  }
+
+  .hero-event-item {
+    padding: 0;
+  }
+
+  .hero-event-item + .hero-event-item {
+    padding-top: 14px;
+    padding-left: 0;
+    border-top: 1px solid rgba(200, 163, 106, 0.16);
+    border-left: 0;
+  }
+
+  .hero-scroll {
+    display: none;
+  }
+
+  .story-highlight {
+    padding-left: 16px;
+  }
+
+  .story-editorial-image {
+    min-height: 500px;
+    border-radius: 24px;
+  }
+
+  .story-editorial-image figcaption {
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+  }
+
+  .story-statement {
+    grid-template-columns: 34px minmax(0, 1fr);
+    padding: 23px 0;
+  }
+
+  .story-statement:hover,
+  .story-experience-item:hover {
+    padding-left: 0;
+  }
+
+  .story-experience-item {
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 14px;
+  }
+
+  .speakers-event-poster {
+    min-height: 520px;
+  }
+
+  .venue-image {
+    min-height: 420px;
+  }
+
+  .journey-watson-image {
+    max-width: 360px;
+  }
+
+}

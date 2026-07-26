@@ -1,0 +1,107 @@
+.ticket-section { overflow:hidden; }
+.ticket-section-heading { max-width:820px; margin:0 auto 48px; text-align:center; }
+.ticket-section-heading .lead { margin-inline:auto; }
+
+.ticket-gallery {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:18px;
+  align-items:stretch;
+}
+
+.ticket-visual-card {
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  overflow:hidden;
+  border:1px solid rgba(200,163,106,.35);
+  border-radius:22px;
+  background:#080d15;
+  box-shadow:0 24px 65px rgba(0,0,0,.28);
+  transition:transform 220ms ease,border-color 220ms ease,box-shadow 220ms ease;
+}
+.ticket-visual-card:hover {
+  transform:translateY(-6px);
+  border-color:rgba(200,163,106,.72);
+  box-shadow:0 32px 80px rgba(0,0,0,.38);
+}
+.ticket-visual-card.is-featured {
+  border-color:rgba(200,163,106,.6);
+  box-shadow:0 28px 72px rgba(200,163,106,.14),0 24px 65px rgba(0,0,0,.3);
+}
+
+.ticket-image-wrapper {
+  position:relative;
+  width:100%;
+  aspect-ratio:992/1664;
+  overflow:hidden;
+  background:#080d15;
+}
+.ticket-image {
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  object-position:center;
+  transition:transform 420ms ease;
+}
+.ticket-visual-card:hover .ticket-image { transform:scale(1.015); }
+
+/* Selo de escassez (vagas) sempre visível */
+.ticket-seats {
+  position:absolute;
+  z-index:4;
+  top:14px;
+  left:14px;
+  display:inline-flex;
+  align-items:center;
+  padding:6px 12px;
+  border:1px solid rgba(200,163,106,.55);
+  border-radius:999px;
+  background:rgba(7,17,31,.72);
+  backdrop-filter:blur(8px);
+  color:var(--champagne-light);
+  font-size:.66rem;
+  font-weight:750;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+
+/* Ação SEMPRE visível (não depende de hover) */
+.ticket-card-action {
+  padding:16px;
+  margin-top:auto;
+  background:#080d15;
+}
+.ticket-buy-button {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  min-height:52px;
+  padding:0 18px;
+  border:1px solid var(--champagne);
+  border-radius:12px;
+  color:#07111f;
+  background:linear-gradient(135deg,var(--champagne-light),var(--champagne));
+  font-size:.84rem;
+  font-weight:800;
+  letter-spacing:.04em;
+  text-transform:uppercase;
+  text-align:center;
+  transition:transform 220ms ease,filter 220ms ease;
+}
+.ticket-buy-button:hover { transform:translateY(-2px); filter:brightness(1.08); }
+
+/* Contador na seção de ingressos */
+.ticket-countdown { margin-top:26px; justify-content:center; }
+
+@media (max-width:1100px) {
+  .ticket-gallery { grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+}
+@media (max-width:560px) {
+  .ticket-gallery { grid-template-columns:1fr; max-width:430px; margin-inline:auto; }
+  .ticket-section-heading { text-align:left; }
+  .ticket-section-heading .lead { margin-inline:0; }
+  .ticket-countdown { justify-content:flex-start; }
+}
