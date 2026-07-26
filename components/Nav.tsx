@@ -16,9 +16,9 @@ export function Nav() {
           </span>
           <span className="brand-wordmark">
             <Image
-              src="/brand/logo-horizontal-trim.png"
+              src="/brand/wordmark-depayser.png"
               alt="Dépayser Paris"
-              width={99}
+              width={131}
               height={30}
               priority
             />

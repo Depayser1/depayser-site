@@ -12,7 +12,7 @@ export function Footer() {
               <Image src="/brand/marca-conceitual-trim.png" alt="" width={44} height={48} />
             </span>
             <span className="brand-wordmark">
-              <Image src="/brand/logo-horizontal-trim.png" alt="Dépayser Paris" width={99} height={30} />
+              <Image src="/brand/wordmark-depayser.png" alt="Dépayser Paris" width={131} height={30} />
             </span>
           </div>
           <p>Desenvolvimento humano, comunicação e experiências para a comunidade lusófona na Europa.</p>

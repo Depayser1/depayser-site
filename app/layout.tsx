@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant, Montserrat } from "next/font/google";
 
-import { siteConfig } from "@/data/site";
+import { siteConfig, tickets } from "@/data/site";
 
 const cormorant = Cormorant({
   subsets: ["latin"],
@@ -48,12 +48,58 @@ export const metadata: Metadata = {
   },
 };
 
+const eventJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  name: siteConfig.eventName,
+  startDate: siteConfig.eventDateISO,
+  endDate: "2026-10-18T18:00:00+02:00",
+  eventStatus: "https://schema.org/EventScheduled",
+  eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+  location: {
+    "@type": "Place",
+    name: siteConfig.venue,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "20 Espl. Nathalie Sarraute",
+      postalCode: "75018",
+      addressLocality: "Paris",
+      addressCountry: "FR",
+    },
+  },
+  image: [`${siteConfig.domain}/images/depayser-poster.png`],
+  description:
+    "Conferência de desenvolvimento humano, comunicação, empreendedorismo e networking para a comunidade lusófona na Europa.",
+  organizer: { "@type": "Organization", name: "Dépayser", url: siteConfig.domain },
+  performer: [
+    { "@type": "Person", name: "Giovanni Begossi" },
+    { "@type": "Person", name: "Amanda Girotto" },
+    { "@type": "Person", name: "Watson Sartor" },
+    { "@type": "Person", name: "Ricardo Carvalho" },
+  ],
+  offers: tickets.map((t) => ({
+    "@type": "Offer",
+    name: t.name,
+    price: t.price.replace(/[^0-9]/g, ""),
+    priceCurrency: "EUR",
+    url: t.href,
+    availability: "https://schema.org/InStock",
+    validFrom: "2026-01-01",
+  })),
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="pt-BR" className={`${cormorant.variable} ${montserrat.variable}`}>
-      <body>{children}</body>
+      <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
