@@ -46,7 +46,8 @@ const speakers: Speaker[] = [
   {
     name: "Juliana Coelho",
     role: "Liderança & Indústria",
-    photo: "/images/juliana.png",
+    photo: "/images/juliana.jpeg",
+    objectPosition: "38% center",
     bio: "Engenheira química e executiva da Stellantis, é uma das principais referências femininas da indústria automotiva global. Começou no setor de petróleo e migrou para o automotivo, integrando a equipe que implantou a fábrica da Jeep em Pernambuco. Da área técnica à gestão industrial, tornou-se a primeira mulher a comandar uma fábrica da Stellantis na América Latina e assumiu uma liderança global no grupo. Eleita uma das Mulheres de Sucesso da Forbes, é referência em inovação, gestão industrial e liderança feminina.",
   },
   {
