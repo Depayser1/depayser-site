@@ -32,7 +32,7 @@ const speakers: Speaker[] = [
     bio: "Cirurgiã-dentista, Miss e referência nacional em comportamento humano e posicionamento estratégico. Com mais de 1 milhão de seguidores e dezenas de milhões de visualizações mensais, construiu autoridade falando o que as pessoas sentem mas não têm coragem de dizer — sobre relacionamentos, valor próprio e dinâmicas humanas. Palestrante e mentora, ajuda homens e mulheres a se posicionarem com inteligência e presença.",
   },
   {
-    name: "Mikaela Gomes",
+    name: "Mikaelle Gomes",
     role: "Negócios Digitais & Vendas",
     photo: "/images/mikaela.png",
     bio: "Empresária, palestrante e mentora de negócios digitais, reconhecida por ensinar vendas e posicionamento para mulheres empreendedoras. Criadora do Método Mulher Milionária, já impactou milhares de alunas em dezenas de países, com foco em crescimento pelo marketing orgânico. Mãe da Melina, mostra na prática como conciliar maternidade e empreendedorismo — inspirando mulheres a construir negócios lucrativos sem abrir mão da vida pessoal.",
