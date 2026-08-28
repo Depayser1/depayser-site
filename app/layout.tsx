@@ -25,6 +25,7 @@ import "../styles/storytelling.css";
 import "../styles/sections.css";
 import "../styles/speakers.css";
 import "../styles/tickets.css";
+import "../styles/cart.css";
 import "../styles/countdown.css";
 import "../styles/sticky.css";
 import "../styles/faq.css";
