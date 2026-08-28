@@ -5,6 +5,7 @@ import { Faq } from "@/components/Faq";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/Hero";
 import { Journey } from "@/components/Journey";
+import { KidsSpace } from "@/components/KidsSpace";
 import { Nav } from "@/components/Nav";
 import { Schedule } from "@/components/Schedule";
 import { Speakers } from "@/components/Speakers";
@@ -23,6 +24,7 @@ export default function HomePage() {
         <Speakers />
         <Schedule />
         <Cart />
+        <KidsSpace />
         <Venue />
         <Faq />
         <Journey />

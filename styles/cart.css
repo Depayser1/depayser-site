@@ -130,6 +130,15 @@
   .cart-stepper { grid-area:stepper; justify-self:start; }
 }
 
+/* Espaço Kids (seção dedicada) */
+.kids-image { aspect-ratio:1; min-height:0; }
+.kids-image img { object-fit:cover; object-position:center; }
+.kids-list { list-style:none; margin:22px 0 0; padding:0; display:flex; flex-direction:column; gap:12px; }
+.kids-list li { position:relative; padding-left:30px; color:#59616d; font-size:1rem; line-height:1.5; }
+.kids-list li::before { content:"✓"; position:absolute; left:0; top:0; color:var(--champagne-dark); font-weight:800; }
+.kids-cta { display:flex; align-items:center; gap:22px; flex-wrap:wrap; margin-top:28px; }
+.kids-price { font-family:var(--font-serif); font-size:1.5rem; font-weight:600; color:var(--ink); }
+
 /* Patrocínio */
 .sponsor-section {
   background:
