@@ -5,8 +5,8 @@ export const siteConfig = {
   instagram: "https://instagram.com/depayser.academy",
   instagramLabel: "@depayser.academy",
   email: "suporte@depayseracademy.com",
-  whatsappRaw: "330784864245",
-  whatsappDisplay: "+33 07 84 86 42 45",
+  whatsappRaw: "33758127257",
+  whatsappDisplay: "+33 07 58 12 72 57",
   dateLabel: "18 de outubro de 2026",
   // Data/hora de início do evento (Paris, UTC+2 no horário de verão) — usada pelo contador regressivo
   eventDateISO: "2026-10-18T10:00:00+02:00",

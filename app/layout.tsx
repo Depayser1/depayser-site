@@ -31,16 +31,21 @@ import "../styles/sticky.css";
 import "../styles/faq.css";
 import "../styles/waitlist.css";
 import "../styles/brand.css";
+import "../styles/academy.css";
 import "../styles/responsive.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.domain),
-  title: `${siteConfig.eventName} | Dépayser`,
+  title: {
+    default: "Dépayser Academy",
+    template: "%s | Dépayser",
+  },
   description:
-    "Conferência de desenvolvimento humano, comunicação, empreendedorismo e networking para a comunidade lusófona na Europa.",
+    "A frente de educação e serviços do movimento Dépayser para empresários lusófonos na Europa — uma jornada de transformação 360°.",
   openGraph: {
-    title: siteConfig.eventName,
-    description: "Um dia de conhecimento, conexões e transformação em Paris.",
+    title: "Dépayser Academy",
+    description:
+      "Transformar talento em autoridade e marcas comuns em marcas memoráveis.",
     url: siteConfig.domain,
     siteName: "Dépayser",
     locale: "pt_BR",

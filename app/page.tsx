@@ -1,39 +1,56 @@
-import { AcademyWaitlist } from "@/components/AcademyWaitlist";
+import type { Metadata } from "next";
+
+import {
+  AcademyConcept,
+  AcademyHero,
+  AcademyLeadership,
+  AcademyMethod,
+  AcademyOrg,
+  AcademyPartners,
+  AcademyProof,
+  AcademyStart,
+  AcademyWho,
+} from "@/components/Academy";
 import { BrandSignature } from "@/components/BrandSignature";
-import { Cart } from "@/components/Cart";
-import { Faq } from "@/components/Faq";
 import { Footer } from "@/components/Footer";
-import { Hero } from "@/components/Hero";
-import { Journey } from "@/components/Journey";
-import { KidsSpace } from "@/components/KidsSpace";
-import { Nav } from "@/components/Nav";
-import { Schedule } from "@/components/Schedule";
-import { Speakers } from "@/components/Speakers";
+import { NavAcademy } from "@/components/NavAcademy";
 import { StickyCta } from "@/components/StickyCta";
-import { Sponsor } from "@/components/Sponsor";
-import { Storytelling } from "@/components/Storytelling";
-import { Venue } from "@/components/Venue";
+
+export const metadata: Metadata = {
+  title: "Dépayser Academy — transformar talento em autoridade",
+  description:
+    "A frente de educação e serviços do movimento Dépayser: gestão, marketing, comunicação e imagem em uma jornada de transformação 360° para empresários lusófonos na Europa.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "Dépayser Academy",
+    description:
+      "Transformar talento em autoridade e marcas comuns em marcas memoráveis.",
+    url: "https://depayseracademy.com",
+    siteName: "Dépayser",
+    locale: "pt_BR",
+    type: "website",
+    images: ["/images/depayser-poster.png"],
+  },
+};
 
 export default function HomePage() {
   return (
     <>
-      <Nav />
+      <NavAcademy />
       <main>
-        <Hero />
-        <Storytelling />
-        <Speakers />
-        <Schedule />
-        <Cart />
-        <KidsSpace />
-        <Venue />
-        <Faq />
-        <Journey />
-        <AcademyWaitlist />
-        <Sponsor />
+        <AcademyHero />
+        <AcademyConcept />
+        <AcademyWho />
+        <AcademyProof />
+        <AcademyOrg />
+        <AcademyMethod />
+        <AcademyLeadership />
+        <AcademyPartners />
+        <AcademyStart />
       </main>
       <BrandSignature />
       <Footer />
-      <StickyCta />
+      <StickyCta href="/conference#ingressos" label="Garantir ingresso" />
     </>
   );
 }

@@ -17,7 +17,7 @@ export function Sponsor() {
         </p>
         <a
           className="cta"
-          href={`https://wa.me/33784864245?text=${msg}`}
+          href={`https://wa.me/33758127257?text=${msg}`}
           target="_blank"
           rel="noreferrer"
         >

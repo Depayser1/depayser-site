@@ -2,7 +2,13 @@
 
 import { useEffect, useState } from "react";
 
-export function StickyCta() {
+export function StickyCta({
+  href = "#ingressos",
+  label = "Garantir ingresso",
+}: {
+  href?: string;
+  label?: string;
+}) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -36,11 +42,11 @@ export function StickyCta() {
   return (
     <a
       className={`sticky-cta${visible ? " is-visible" : ""}`}
-      href="#ingressos"
+      href={href}
       aria-hidden={!visible}
       tabIndex={visible ? 0 : -1}
     >
-      <span className="sticky-cta-label">Garantir ingresso</span>
+      <span className="sticky-cta-label">{label}</span>
       <span className="sticky-cta-arrow" aria-hidden="true">→</span>
     </a>
   );
