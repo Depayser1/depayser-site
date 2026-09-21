@@ -79,7 +79,7 @@ export function AcademyConcept() {
 export function AcademyWho() {
   return (
     <section className="section academy-who" id="academy">
-      <div className="container academy-who-grid">
+      <div className="container academy-who-single">
         <div className="academy-who-copy">
           <div className="eyebrow">Quem somos</div>
           <h2 className="section-title">
@@ -94,14 +94,6 @@ export function AcademyWho() {
             comuns em marcas memoráveis.
           </p>
         </div>
-        <figure className="academy-who-figure">
-          <Image
-            src="/brand/academy-lockup.png"
-            alt="Dépayser Academy"
-            fill
-            sizes="(max-width: 900px) 100vw, 46vw"
-          />
-        </figure>
       </div>
     </section>
   );

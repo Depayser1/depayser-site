@@ -131,6 +131,15 @@
   gap: 48px;
   align-items: center;
 }
+.academy-who-single {
+  max-width: 54rem;
+  margin-inline: auto;
+  text-align: center;
+}
+.academy-who-single .lead {
+  margin-inline: auto;
+  max-width: 44rem;
+}
 .academy-who .lead + .lead { margin-top: 16px; }
 .academy-who-figure {
   position: relative;
