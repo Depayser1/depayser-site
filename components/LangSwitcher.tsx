@@ -26,6 +26,16 @@ export function LangSwitcher() {
       >
         🇫🇷
       </button>
+      <button
+        type="button"
+        className={`lang-flag${lang === "en" ? " is-active" : ""}`}
+        onClick={() => setLang("en")}
+        aria-pressed={lang === "en"}
+        aria-label="English"
+        title="English"
+      >
+        🇬🇧
+      </button>
     </div>
   );
 }

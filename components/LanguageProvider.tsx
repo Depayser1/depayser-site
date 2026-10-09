@@ -8,7 +8,7 @@ type Ctx = { lang: Lang; setLang: (l: Lang) => void };
 
 const LangContext = createContext<Ctx>({ lang: "pt", setLang: () => {} });
 
-const htmlLang = (l: Lang) => (l === "fr" ? "fr" : "pt-BR");
+const htmlLang = (l: Lang) => (l === "fr" ? "fr" : l === "en" ? "en" : "pt-BR");
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>("pt");
@@ -16,7 +16,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     try {
       const saved = localStorage.getItem("dp_lang");
-      if (saved === "pt" || saved === "fr") {
+      if (saved === "pt" || saved === "fr" || saved === "en") {
         setLangState(saved);
         document.documentElement.lang = htmlLang(saved);
       }
