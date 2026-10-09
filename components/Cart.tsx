@@ -86,6 +86,7 @@ export function Cart() {
                   <div className="cart-info">
                     <h3>{info.name}</h3>
                     {info.note && <p>{info.note}</p>}
+                    <span className="cart-scarcity">{t.conf.cart.scarcity}</span>
                     <span className="cart-price">{it.price}€</span>
                   </div>
                   <div className="cart-stepper" aria-label={info.name}>

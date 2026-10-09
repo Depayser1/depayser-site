@@ -46,6 +46,38 @@
 }
 .cart-price { font-size:1rem; font-weight:800; color:var(--champagne-light); font-family:var(--font-sans); }
 
+.cart-scarcity {
+  display:flex;
+  width:fit-content;
+  align-items:center;
+  gap:7px;
+  margin:1px 0 7px;
+  font-family:var(--font-sans);
+  font-size:.7rem;
+  font-weight:800;
+  letter-spacing:.05em;
+  text-transform:uppercase;
+  color:var(--champagne-light);
+}
+.cart-scarcity::before {
+  content:"";
+  width:7px; height:7px; border-radius:50%;
+  background:var(--champagne);
+  animation:cartPulse 1.8s infinite;
+}
+.cart-scarcity.is-critical { color:#ffb4a0; }
+.cart-scarcity.is-critical::before { background:#ff6b4a; animation:cartPulseCrit 1.4s infinite; }
+@keyframes cartPulse {
+  0% { box-shadow:0 0 0 0 rgba(198,160,82,.55); }
+  70% { box-shadow:0 0 0 7px rgba(198,160,82,0); }
+  100% { box-shadow:0 0 0 0 rgba(198,160,82,0); }
+}
+@keyframes cartPulseCrit {
+  0% { box-shadow:0 0 0 0 rgba(255,107,74,.6); }
+  70% { box-shadow:0 0 0 8px rgba(255,107,74,0); }
+  100% { box-shadow:0 0 0 0 rgba(255,107,74,0); }
+}
+
 .cart-stepper {
   display:inline-flex;
   align-items:center;
