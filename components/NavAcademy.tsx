@@ -10,6 +10,7 @@ export function NavAcademy() {
   return (
     <header className="nav nav-academy">
       <div className="container nav-inner">
+        <LangSwitcher />
         <a className="brand" href="/" aria-label="Início — Dépayser Academy">
           <span className="brand-mark" aria-hidden="true">
             <Image src="/brand/marca-conceitual-trim.png" alt="" width={46} height={50} priority />
@@ -37,7 +38,6 @@ export function NavAcademy() {
           <a className="cta" href="/conference#ingressos">
             {t.nav.cta}
           </a>
-          <LangSwitcher />
         </nav>
       </div>
     </header>
