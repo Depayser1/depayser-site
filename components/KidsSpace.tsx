@@ -1,34 +1,36 @@
+"use client";
+
 import Image from "next/image";
 
+import { useT } from "@/components/LanguageProvider";
+
 export function KidsSpace() {
+  const t = useT();
   return (
     <section className="section light kids-section" id="kids">
       <div className="container grid-2">
         <div className="image-card kids-image">
           <Image
             src="/images/ticket-kids.png"
-            alt="Depayser Kids — Espaço Kids em Paris"
+            alt={t.conf.kids.imgAlt}
             fill
             sizes="(max-width: 920px) 100vw, 50vw"
           />
         </div>
         <div>
-          <div className="eyebrow">Depayser Kids</div>
-          <h2 className="section-title">Traga a família. A gente cuida das crianças.</h2>
-          <p className="lead">
-            Sabemos que sair de casa com os filhos pode ser um desafio — por isso criamos
-            o Depayser Kids. Um espaço pensado para as crianças se divertirem com segurança
-            enquanto você aproveita cada palestra, conexão e momento do evento com
-            tranquilidade.
-          </p>
+          <div className="eyebrow">{t.conf.kids.eyebrow}</div>
+          <h2 className="section-title">{t.conf.kids.title}</h2>
+          <p className="lead">{t.conf.kids.lead}</p>
           <ul className="kids-list">
-            <li>Ambiente seguro e acolhedor, com monitores dedicados.</li>
-            <li>Atividades e diversão ao longo de todo o evento (das 10h às 18h).</li>
-            <li>Para os filhos dos participantes — você presente, sem preocupação.</li>
+            {t.conf.kids.list.map((li) => (
+              <li key={li}>{li}</li>
+            ))}
           </ul>
           <div className="kids-cta">
-            <span className="kids-price">Apenas 20€ por criança</span>
-            <a className="cta" href="#ingressos">Adicionar Espaço Kids</a>
+            <span className="kids-price">{t.conf.kids.price}</span>
+            <a className="cta" href="#ingressos">
+              {t.conf.kids.cta}
+            </a>
           </div>
         </div>
       </div>

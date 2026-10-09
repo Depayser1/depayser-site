@@ -1,17 +1,16 @@
-const schedule = [
-  { time: "10h–14h", title: "Ciclo de palestras", text: "Histórias, estratégias e aprendizados sobre comunicação, mentalidade, carreira e empreendedorismo." },
-  { time: "14h–15h", title: "Coffee break e networking", text: "Um ambiente acolhedor para criar conexões, compartilhar experiências e ampliar sua rede." },
-  { time: "15h–18h", title: "Ciclo final de palestras", text: "Conteúdos de maior profundidade, apresentação da próxima turma da mentoria e encerramento." },
-];
+"use client";
+
+import { useT } from "@/components/LanguageProvider";
 
 export function Schedule() {
+  const t = useT();
   return (
     <section className="section light" id="programacao">
       <div className="container">
-        <div className="eyebrow">Programação</div>
-        <h2 className="section-title">Um dia para transformar visão em movimento</h2>
+        <div className="eyebrow">{t.conf.schedule.eyebrow}</div>
+        <h2 className="section-title">{t.conf.schedule.title}</h2>
         <div className="schedule-grid">
-          {schedule.map((item) => (
+          {t.conf.schedule.items.map((item) => (
             <article className="schedule-card" key={item.time}>
               <div className="eyebrow">{item.time}</div>
               <h3>{item.title}</h3>

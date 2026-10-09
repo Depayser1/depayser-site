@@ -3,6 +3,34 @@
    Paleta e tipografia herdadas de globals.css
    ============================================================ */
 
+/* ---------- SELETOR DE IDIOMA ---------- */
+.lang-switcher {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+}
+.lang-flag {
+  background: none;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 3px 7px;
+  font-size: 1.05rem;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0.45;
+  filter: grayscale(0.4);
+  transition: opacity var(--transition), background var(--transition), border-color var(--transition), filter var(--transition);
+}
+.lang-flag:hover {
+  opacity: 0.85;
+}
+.lang-flag.is-active {
+  opacity: 1;
+  filter: none;
+  border-color: var(--border);
+  background: rgba(198, 160, 82, 0.12);
+}
+
 /* ---------- NAV (home) ---------- */
 .nav-academy .nav-links a.is-event {
   color: var(--champagne-light);

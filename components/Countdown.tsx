@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 
+import { useT } from "@/components/LanguageProvider";
 import { siteConfig } from "@/data/site";
 
 type TimeLeft = {
@@ -30,6 +31,7 @@ function getTimeLeft(target: number): TimeLeft {
 const pad = (n: number) => String(n).padStart(2, "0");
 
 export function Countdown({ className = "" }: { className?: string }) {
+  const t = useT();
   const target = new Date(siteConfig.eventDateISO).getTime();
   const [time, setTime] = useState<TimeLeft | null>(null);
 
@@ -47,25 +49,25 @@ export function Countdown({ className = "" }: { className?: string }) {
   if (time.done) {
     return (
       <div className={`countdown countdown-done ${className}`.trim()}>
-        <span>O grande dia chegou. Nos vemos em Paris.</span>
+        <span>{t.conf.countdown.done}</span>
       </div>
     );
   }
 
   const units: Array<{ label: string; value: string }> = [
-    { label: "dias", value: String(time.days) },
-    { label: "horas", value: pad(time.hours) },
-    { label: "min", value: pad(time.minutes) },
-    { label: "seg", value: pad(time.seconds) },
+    { label: t.conf.countdown.days, value: String(time.days) },
+    { label: t.conf.countdown.hours, value: pad(time.hours) },
+    { label: t.conf.countdown.min, value: pad(time.minutes) },
+    { label: t.conf.countdown.sec, value: pad(time.seconds) },
   ];
 
   return (
     <div
       className={`countdown ${className}`.trim()}
       role="timer"
-      aria-label="Contagem regressiva para o evento"
+      aria-label={t.conf.countdown.caption}
     >
-      <span className="countdown-caption">Faltam</span>
+      <span className="countdown-caption">{t.conf.countdown.caption}</span>
       <div className="countdown-units">
         {units.map((unit) => (
           <div className="countdown-unit" key={unit.label}>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Cormorant, Montserrat } from "next/font/google";
 
+import { LanguageProvider } from "@/components/LanguageProvider";
 import { siteConfig, tickets } from "@/data/site";
 
 const cormorant = Cormorant({
@@ -104,7 +105,7 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
         />
-        {children}
+        <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
   );

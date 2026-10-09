@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 
+import { useT } from "@/components/LanguageProvider";
 import { siteConfig } from "@/data/site";
 
 const wa = `https://wa.me/${siteConfig.whatsappRaw}?text=${encodeURIComponent(
@@ -8,30 +11,31 @@ const wa = `https://wa.me/${siteConfig.whatsappRaw}?text=${encodeURIComponent(
 
 /* ---------------- HERO ---------------- */
 export function AcademyHero() {
+  const t = useT();
   return (
     <section className="academy-hero" id="inicio">
       <div className="container academy-hero-grid">
         <div className="academy-hero-copy">
-          <div className="eyebrow">Dépayser Academy</div>
+          <div className="eyebrow">{t.hero.eyebrow}</div>
           <h1>
-            Transformar talento em <span className="gold">autoridade</span>.
+            {t.hero.titleA}
+            <span className="gold">{t.hero.titleGold}</span>
+            {t.hero.titleB}
           </h1>
-          <p className="lead">
-            A frente de educação e serviços do movimento Dépayser, dedicada a
-            desenvolver empresários e empreendedores da comunidade lusófona na
-            França — em uma jornada de transformação 360°.
-          </p>
+          <p className="lead">{t.hero.lead}</p>
           <div className="academy-hero-actions">
             <a className="cta" href="/conference#ingressos">
-              Garantir ingresso · Conference
+              {t.common.garantirConference}
             </a>
             <a className="cta outline" href="#metodo">
-              Conhecer a Academy
+              {t.common.conhecerAcademy}
             </a>
           </div>
           <div className="academy-hero-meta">
             <span>
-              Próxima Conference · <strong>18 de outubro</strong> · Paris
+              {t.hero.metaPre}
+              <strong>{t.hero.metaDate}</strong>
+              {t.hero.metaSuf}
             </span>
           </div>
         </div>
@@ -51,25 +55,26 @@ export function AcademyHero() {
 
 /* ---------------- CONCEITO ---------------- */
 export function AcademyConcept() {
+  const t = useT();
   return (
     <section className="section academy-concept" id="conceito">
       <div className="container">
-        <div className="eyebrow">O significado</div>
+        <div className="eyebrow">{t.concept.eyebrow}</div>
         <h2>
-          Dépayser: sair do comum
-          <br /> para se tornar inesquecível.
+          {t.concept.titleA}
+          <br /> {t.concept.titleB}
         </h2>
         <p className="lead">
-          Em francês, <em>dépayser</em> é o deslocamento que amplia o olhar.
+          {t.concept.leadA}
+          <em>{t.concept.leadEm}</em>
+          {t.concept.leadB}
         </p>
         <div className="academy-etimo">
-          <span>Dé · sair</span>
-          <span>Pays · lugar</span>
-          <span>Er · ação</span>
+          {t.concept.etimo.map((e) => (
+            <span key={e}>{e}</span>
+          ))}
         </div>
-        <p className="academy-quote">
-          &ldquo;Não é sobre mudar de país. É sobre mudar de patamar.&rdquo;
-        </p>
+        <p className="academy-quote">&ldquo;{t.concept.quote}&rdquo;</p>
       </div>
     </section>
   );
@@ -77,22 +82,15 @@ export function AcademyConcept() {
 
 /* ---------------- QUEM SOMOS ---------------- */
 export function AcademyWho() {
+  const t = useT();
   return (
     <section className="section academy-who" id="academy">
       <div className="container academy-who-single">
         <div className="academy-who-copy">
-          <div className="eyebrow">Quem somos</div>
-          <h2 className="section-title">
-            A frente de educação e serviços do movimento Dépayser.
-          </h2>
-          <p className="lead">
-            Reunimos gestão empresarial, marketing e posicionamento, comunicação
-            e imagem pessoal em uma única jornada de transformação 360°.
-          </p>
-          <p className="lead">
-            Nosso propósito é simples: transformar talento em autoridade e marcas
-            comuns em marcas memoráveis.
-          </p>
+          <div className="eyebrow">{t.who.eyebrow}</div>
+          <h2 className="section-title">{t.who.title}</h2>
+          <p className="lead">{t.who.lead1}</p>
+          <p className="lead">{t.who.lead2}</p>
         </div>
       </div>
     </section>
@@ -101,16 +99,16 @@ export function AcademyWho() {
 
 /* ---------------- PROVA SOCIAL ---------------- */
 export function AcademyProof() {
+  const t = useT();
   return (
     <section className="section academy-proof">
       <div className="container">
         <h2>
-          +40 anos de experiência somada, +200 alunos, mentorados e clientes —
-          resultados em <b>6 países</b>.
+          {t.proof.a}
+          <b>{t.proof.bold}</b>
+          {t.proof.b}
         </h2>
-        <div className="academy-countries">
-          Brasil · França · Itália · Portugal · Reino Unido · Austrália
-        </div>
+        <div className="academy-countries">{t.proof.countries}</div>
       </div>
     </section>
   );
@@ -118,34 +116,29 @@ export function AcademyProof() {
 
 /* ---------------- ORGANIZAÇÃO ---------------- */
 export function AcademyOrg() {
+  const t = useT();
   return (
     <section className="section academy-org" id="organizacao">
       <div className="container">
         <div className="section-head">
-          <div className="eyebrow">Como a Dépayser é organizada</div>
-          <h2 className="section-title">Dois braços, um só movimento.</h2>
+          <div className="eyebrow">{t.org.eyebrow}</div>
+          <h2 className="section-title">{t.org.title}</h2>
         </div>
         <div className="academy-org-grid">
           <div className="org-card is-event">
-            <span className="org-kicker">Presencial · Paris</span>
-            <h3>Dépayser Conference</h3>
-            <p>
-              Os encontros presenciais em Paris que acendem o movimento e reúnem
-              a comunidade lusófona.
-            </p>
+            <span className="org-kicker">{t.org.confKicker}</span>
+            <h3>{t.org.confTitle}</h3>
+            <p>{t.org.confDesc}</p>
             <a className="cta" href="/conference">
-              Ver a Conference
+              {t.org.confCta}
             </a>
           </div>
           <div className="org-card">
-            <span className="org-kicker">O ano inteiro</span>
-            <h3>Dépayser Academy</h3>
-            <p>
-              A escola, as mentorias e os serviços que sustentam a transformação
-              o ano inteiro.
-            </p>
+            <span className="org-kicker">{t.org.acadKicker}</span>
+            <h3>{t.org.acadTitle}</h3>
+            <p>{t.org.acadDesc}</p>
             <a className="cta outline" href="#metodo">
-              Ver o método 360°
+              {t.org.acadCta}
             </a>
           </div>
         </div>
@@ -155,76 +148,18 @@ export function AcademyOrg() {
 }
 
 /* ---------------- MÉTODO 360 ---------------- */
-const steps = [
-  {
-    n: "01",
-    title: "Diagnóstico",
-    desc: "Excelência e resultados sustentáveis começam dentro da empresa: estrutura sólida, equipes alinhadas, comunicação estratégica e propósito claro.",
-    items: [
-      "Gestão empresarial",
-      "Contabilidade",
-      "RH & treinamento de pessoal",
-      "Implementação de processos",
-      "Fluxo de vendas",
-      "Gestão de canais de atendimento",
-    ],
-  },
-  {
-    n: "02",
-    title: "Plano",
-    desc: "Desenhamos a estratégia 360° sob medida. Marca desejada, visível, coerente e memorável.",
-    items: [
-      "Rebranding & identidade visual",
-      "Posicionamento digital",
-      "Criação de site",
-      "E-mail marketing",
-      "Gestão de redes sociais",
-      "Captação & produção audiovisual",
-      "Uniformes & brindes",
-    ],
-  },
-  {
-    n: "03",
-    title: "Execução",
-    desc: "Força-tarefa com todas as frentes. O empresário à altura da própria marca.",
-    items: [
-      "Comunicação & oratória",
-      "Vendas",
-      "Liderança",
-      "Etiqueta",
-      "Francês",
-      "Imagem pessoal",
-      "Visagismo",
-    ],
-  },
-  {
-    n: "04",
-    title: "Acompanhamento",
-    desc: "Medimos, ajustamos e elevamos o padrão. Não existe marca de alto nível com um empresário no limite.",
-    items: [
-      "Treinamento físico",
-      "Nutrição",
-      "Rotina do empresário",
-      "Personal organizer",
-      "Motivação e disciplina",
-    ],
-  },
-];
-
 export function AcademyMethod() {
+  const t = useT();
   return (
     <section className="section academy-method" id="metodo">
       <div className="container">
         <div className="section-head">
-          <div className="eyebrow">A Academy — o glow up completo do empresário</div>
-          <h2 className="section-title">Um método, quatro passos.</h2>
-          <p className="lead">
-            Não entregamos serviços soltos, entregamos uma transformação 360°: do
-            bastidor da empresa à sua presença diante do mundo.
-          </p>
+          <div className="eyebrow">{t.method.eyebrow}</div>
+          <h2 className="section-title">{t.method.title}</h2>
+          <p className="lead">{t.method.lead}</p>
         </div>
         <div className="method-grid">
-          {steps.map((s) => (
+          {t.method.steps.map((s) => (
             <article className="method-card" key={s.n}>
               <span className="method-num">{s.n}</span>
               <h3>{s.title}</h3>
@@ -243,63 +178,25 @@ export function AcademyMethod() {
 }
 
 /* ---------------- LIDERANÇA ---------------- */
-const leaders = [
-  {
-    name: "Watson Sartor",
-    role: "Fundador & CEO",
-    img: "/images/lider-watson.png",
-    items: [
-      "Especialista em comunicação e oratória",
-      "1º brasileiro formado em Coach de Oratória — Academia Silence (Paris)",
-      "Oratória (Senac) · Gestão Comercial",
-      "+14 anos em vendas, atendimento e gestão de pessoas",
-      "+80 pessoas formadas só em 2026",
-    ],
-  },
-  {
-    name: "Tiago Allaion",
-    role: "Diretor Executivo",
-    img: "/images/lider-tiago.png",
-    items: [
-      "Gestor especializado em Odontologia (UNIP)",
-      "+16 anos de trajetória · na França desde os 22",
-      "Liderança, gestão e visão estratégica",
-      "Referência na comunidade brasileira em Paris",
-      "Pastor da Igreja Lagoinha Paris",
-    ],
-  },
-  {
-    name: "Ricardo Carvalho",
-    role: "Diretor de Marketing",
-    img: "/images/lider-ricardo.png",
-    items: [
-      "Marketing digital, social media e audiovisual",
-      "Sócio-fundador da Maison Rebuli e da Seeds Mkt Digital",
-      "Oficial R/2 do Exército brasileiro e ex-integrante da Legião Estrangeira Francesa",
-      "Clientes em 4 países (França, Itália, Reino Unido e Austrália)",
-      "Disciplina militar + visão de negócio",
-    ],
-  },
-];
-
 export function AcademyLeadership() {
+  const t = useT();
+  const leaders = [
+    { name: "Watson Sartor", role: t.leaders.roles.watson, img: "/images/lider-watson.png", items: t.leaders.watson },
+    { name: "Tiago Allaion", role: t.leaders.roles.tiago, img: "/images/lider-tiago.png", items: t.leaders.tiago },
+    { name: "Ricardo Carvalho", role: t.leaders.roles.ricardo, img: "/images/lider-ricardo.png", items: t.leaders.ricardo },
+  ];
   return (
     <section className="section speakers-dark academy-leaders" id="lideranca">
       <div className="container">
         <div className="section-head">
-          <div className="eyebrow">Quem está por trás</div>
-          <h2 className="section-title">A liderança do movimento.</h2>
+          <div className="eyebrow">{t.leaders.eyebrow}</div>
+          <h2 className="section-title">{t.leaders.title}</h2>
         </div>
         <div className="leaders-grid">
           {leaders.map((l) => (
             <article className="leader-card" key={l.name}>
               <div className="leader-photo">
-                <Image
-                  src={l.img}
-                  alt={l.name}
-                  fill
-                  sizes="(max-width: 900px) 100vw, 30vw"
-                />
+                <Image src={l.img} alt={l.name} fill sizes="(max-width: 900px) 100vw, 30vw" />
               </div>
               <div className="leader-body">
                 <h3>{l.name}</h3>
@@ -320,11 +217,12 @@ export function AcademyLeadership() {
 
 /* ---------------- PARCEIROS ---------------- */
 export function AcademyPartners() {
+  const t = useT();
   return (
     <section className="section academy-partners">
       <div className="container">
-        <div className="eyebrow">Confiança</div>
-        <h2 className="section-title">Marcas e nomes que já caminham conosco.</h2>
+        <div className="eyebrow">{t.partners.eyebrow}</div>
+        <h2 className="section-title">{t.partners.title}</h2>
         <div className="partners-row">
           <span>Lagoinha</span>
           <span>Lumny</span>
@@ -340,34 +238,27 @@ export function AcademyPartners() {
 
 /* ---------------- COMO COMEÇAR / CTA ---------------- */
 export function AcademyStart() {
+  const t = useT();
   return (
     <section className="section academy-start" id="comecar">
       <div className="container">
-        <div className="eyebrow">Como começar</div>
-        <h2>O primeiro passo é uma conversa.</h2>
+        <div className="eyebrow">{t.start.eyebrow}</div>
+        <h2>{t.start.title}</h2>
         <div className="start-steps">
-          <div className="start-step">
-            <span>01</span>
-            <h4>Agende seu diagnóstico</h4>
-            <p>Uma conversa para entender o seu momento.</p>
-          </div>
-          <div className="start-step">
-            <span>02</span>
-            <h4>Receba seu plano 360°</h4>
-            <p>A estratégia sob medida para a sua marca.</p>
-          </div>
-          <div className="start-step">
-            <span>03</span>
-            <h4>Comece a transformação</h4>
-            <p>Execução e acompanhamento com o nosso time.</p>
-          </div>
+          {t.start.steps.map((s) => (
+            <div className="start-step" key={s.n}>
+              <span>{s.n}</span>
+              <h4>{s.title}</h4>
+              <p>{s.desc}</p>
+            </div>
+          ))}
         </div>
         <div className="academy-start-actions">
           <a className="cta" href="/conference#ingressos">
-            Garantir ingresso · Conference
+            {t.common.garantirConference}
           </a>
           <a className="cta outline" href={wa} target="_blank" rel="noreferrer">
-            Falar no WhatsApp
+            {t.common.falarWhatsapp}
           </a>
         </div>
       </div>

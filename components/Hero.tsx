@@ -1,7 +1,10 @@
+"use client";
+
 import { Countdown } from "@/components/Countdown";
-import { siteConfig } from "@/data/site";
+import { useT } from "@/components/LanguageProvider";
 
 export function Hero() {
+  const t = useT();
   return (
     <section className="hero-premium" id="inicio">
       <div className="hero-overlay" />
@@ -15,32 +18,33 @@ export function Hero() {
           </div>
 
           <h1>
-            Viva à altura
-            <span>do seu potencial</span>
+            {t.conf.hero.titleA}
+            <span>{t.conf.hero.titleB}</span>
           </h1>
 
-          <p className="hero-description">
-            Uma conferência criada para fortalecer, desenvolver e conectar
-            lusófonos que decidiram ir além.
-          </p>
+          <p className="hero-description">{t.conf.hero.desc}</p>
 
           <div className="hero-actions">
-            <a className="cta" href="#ingressos">Garantir meu ingresso</a>
-            <a className="cta outline" href="#experiencia">Descobrir a experiência</a>
+            <a className="cta" href="#ingressos">
+              {t.conf.hero.ctaPrimary}
+            </a>
+            <a className="cta outline" href="#experiencia">
+              {t.conf.hero.ctaSecondary}
+            </a>
           </div>
 
           <div className="hero-event-info">
             <div className="hero-event-item">
-              <span className="hero-info-label">Data</span>
-              <strong>{siteConfig.dateLabel}</strong>
+              <span className="hero-info-label">{t.conf.hero.data}</span>
+              <strong>{t.conf.dateLabel}</strong>
             </div>
             <div className="hero-event-item">
-              <span className="hero-info-label">Horário</span>
-              <strong>{siteConfig.timeLabel}</strong>
+              <span className="hero-info-label">{t.conf.hero.horario}</span>
+              <strong>{t.conf.timeLabel}</strong>
             </div>
             <div className="hero-event-item">
-              <span className="hero-info-label">Local</span>
-              <strong>Paris, França</strong>
+              <span className="hero-info-label">{t.conf.hero.local}</span>
+              <strong>{t.conf.hero.localValue}</strong>
             </div>
           </div>
 
@@ -48,9 +52,9 @@ export function Hero() {
         </div>
       </div>
 
-      <a className="hero-scroll" href="#experiencia" aria-label="Ir para a próxima seção">
+      <a className="hero-scroll" href="#experiencia" aria-label={t.conf.hero.scroll}>
         <span aria-hidden="true" />
-        Descobrir
+        {t.conf.hero.scroll}
       </a>
     </section>
   );

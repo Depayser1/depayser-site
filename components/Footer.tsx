@@ -1,8 +1,12 @@
+"use client";
+
 import Image from "next/image";
 
+import { useT } from "@/components/LanguageProvider";
 import { siteConfig } from "@/data/site";
 
 export function Footer() {
+  const t = useT();
   return (
     <footer className="footer">
       <div className="container footer-grid">
@@ -15,15 +19,23 @@ export function Footer() {
               <Image src="/brand/wordmark-depayser.png" alt="Dépayser Paris" width={131} height={30} />
             </span>
           </div>
-          <p>Desenvolvimento humano, comunicação e experiências para a comunidade lusófona na Europa.</p>
+          <p>{t.footer.tagline}</p>
         </div>
         <div>
-          <strong>Contato</strong>
-          <p><a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a><br />{siteConfig.whatsappDisplay}</p>
+          <strong>{t.footer.contato}</strong>
+          <p>
+            <a href={`mailto:${siteConfig.email}`}>{siteConfig.email}</a>
+            <br />
+            {siteConfig.whatsappDisplay}
+          </p>
         </div>
         <div>
-          <strong>Redes</strong>
-          <p><a href={siteConfig.instagram} target="_blank" rel="noreferrer">{siteConfig.instagramLabel}</a></p>
+          <strong>{t.footer.redes}</strong>
+          <p>
+            <a href={siteConfig.instagram} target="_blank" rel="noreferrer">
+              {siteConfig.instagramLabel}
+            </a>
+          </p>
         </div>
       </div>
     </footer>

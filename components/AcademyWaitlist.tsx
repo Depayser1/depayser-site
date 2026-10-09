@@ -2,17 +2,18 @@
 
 import { useState } from "react";
 
+import { useT } from "@/components/LanguageProvider";
 import { siteConfig } from "@/data/site";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
 // Configure este endpoint (Formspree, Getform, Brevo, ou uma rota /api própria)
 // definindo NEXT_PUBLIC_WAITLIST_ENDPOINT no .env.local.
-// Se ficar vazio, o formulário usa um fallback que abre o e-mail da equipe
-// já preenchido — assim nenhum lead é perdido enquanto a ferramenta não é escolhida.
 const ENDPOINT = process.env.NEXT_PUBLIC_WAITLIST_ENDPOINT ?? "";
 
 export function AcademyWaitlist() {
+  const t = useT();
+  const w = t.conf.waitlist;
   const [status, setStatus] = useState<Status>("idle");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -22,12 +23,9 @@ export function AcademyWaitlist() {
     event.preventDefault();
     if (status === "submitting") return;
 
-    // Sem endpoint configurado: fallback por e-mail (não perde o lead).
     if (!ENDPOINT) {
-      const subject = encodeURIComponent("Lista de espera — Dépayser Academy");
-      const body = encodeURIComponent(
-        `Nome: ${name}\nE-mail: ${email}\nPerfil: ${profile || "não informado"}`
-      );
+      const subject = encodeURIComponent(w.mailSubject);
+      const body = encodeURIComponent(`${w.name}: ${name}\n${w.email}: ${email}\n${w.youAre}: ${profile || "-"}`);
       window.location.href = `mailto:${siteConfig.email}?subject=${subject}&body=${body}`;
       setStatus("success");
       return;
@@ -51,28 +49,23 @@ export function AcademyWaitlist() {
     <section className="section academy-waitlist" id="academy">
       <div className="container academy-inner">
         <div className="academy-copy">
-          <div className="eyebrow">Dépayser Academy</div>
-          <h2 className="section-title">O próximo passo depois da conferência</h2>
-          <p className="lead">
-            A Conference acende o movimento; a Academy sustenta a transformação o ano
-            todo — com formações, mentorias e comunidade. Entre para a lista de espera e
-            seja o primeiro a saber quando as inscrições abrirem.
-          </p>
+          <div className="eyebrow">{w.eyebrow}</div>
+          <h2 className="section-title">{w.title}</h2>
+          <p className="lead">{w.lead}</p>
         </div>
 
         {status === "success" ? (
           <div className="academy-success" role="status">
-            <div className="academy-success-mark" aria-hidden="true">✓</div>
-            <h3>Você está na lista.</h3>
-            <p>
-              Obrigado. Assim que a Dépayser Academy abrir, você será um dos primeiros a
-              receber o convite.
-            </p>
+            <div className="academy-success-mark" aria-hidden="true">
+              ✓
+            </div>
+            <h3>{w.successTitle}</h3>
+            <p>{w.successText}</p>
           </div>
         ) : (
           <form className="academy-form" onSubmit={handleSubmit} noValidate>
             <div className="academy-field">
-              <label htmlFor="wl-name">Nome</label>
+              <label htmlFor="wl-name">{w.name}</label>
               <input
                 id="wl-name"
                 name="name"
@@ -81,11 +74,11 @@ export function AcademyWaitlist() {
                 autoComplete="name"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                placeholder="Seu nome"
+                placeholder={w.namePh}
               />
             </div>
             <div className="academy-field">
-              <label htmlFor="wl-email">E-mail</label>
+              <label htmlFor="wl-email">{w.email}</label>
               <input
                 id="wl-email"
                 name="email"
@@ -94,34 +87,28 @@ export function AcademyWaitlist() {
                 autoComplete="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                placeholder="voce@email.com"
+                placeholder={w.emailPh}
               />
             </div>
             <div className="academy-field">
-              <label htmlFor="wl-profile">Você é</label>
-              <select
-                id="wl-profile"
-                name="profile"
-                value={profile}
-                onChange={(e) => setProfile(e.target.value)}
-              >
-                <option value="">Selecione (opcional)</option>
-                <option value="empresario">Empresário(a)</option>
-                <option value="criador">Criador(a) de conteúdo</option>
-                <option value="profissional">Profissional</option>
-                <option value="outro">Outro</option>
+              <label htmlFor="wl-profile">{w.youAre}</label>
+              <select id="wl-profile" name="profile" value={profile} onChange={(e) => setProfile(e.target.value)}>
+                <option value="">{w.selectOpt}</option>
+                <option value="empresario">{w.optEmpresario}</option>
+                <option value="criador">{w.optCriador}</option>
+                <option value="profissional">{w.optProfissional}</option>
+                <option value="outro">{w.optOutro}</option>
               </select>
             </div>
             <button className="cta academy-submit" type="submit" disabled={status === "submitting"}>
-              {status === "submitting" ? "Enviando..." : "Entrar na lista de espera"}
+              {status === "submitting" ? w.sending : w.submit}
             </button>
             {status === "error" && (
               <p className="academy-error" role="alert">
-                Não foi possível enviar agora. Tente novamente em instantes ou fale com a
-                gente no WhatsApp.
+                {w.err}
               </p>
             )}
-            <p className="academy-privacy">Sem spam. Só novidades da Academy — você sai quando quiser.</p>
+            <p className="academy-privacy">{w.privacy}</p>
           </form>
         )}
       </div>

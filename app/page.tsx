@@ -50,7 +50,7 @@ export default function HomePage() {
       </main>
       <BrandSignature />
       <Footer />
-      <StickyCta href="/conference#ingressos" label="Garantir ingresso" />
+      <StickyCta href="/conference#ingressos" />
     </>
   );
 }
