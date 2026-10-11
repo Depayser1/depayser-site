@@ -1,22 +1,39 @@
 import type { Metadata } from "next";
-import { Cormorant, Montserrat } from "next/font/google";
+import localFont from "next/font/local";
+
+import { Suspense } from "react";
 
 import { LanguageProvider } from "@/components/LanguageProvider";
+import { MetaPixel, MetaPixelEvents } from "@/components/MetaPixel";
 import { siteConfig, tickets } from "@/data/site";
 
-const cormorant = Cormorant({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  style: ["normal", "italic"],
+// Fontes auto-hospedadas (next/font/local) — o build não depende mais de baixar do Google.
+const cormorant = localFont({
   variable: "--font-cormorant",
   display: "swap",
+  src: [
+    { path: "./fonts/cormorant-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/cormorant-latin-400-italic.woff2", weight: "400", style: "italic" },
+    { path: "./fonts/cormorant-latin-500-normal.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/cormorant-latin-500-italic.woff2", weight: "500", style: "italic" },
+    { path: "./fonts/cormorant-latin-600-normal.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/cormorant-latin-600-italic.woff2", weight: "600", style: "italic" },
+    { path: "./fonts/cormorant-latin-700-normal.woff2", weight: "700", style: "normal" },
+    { path: "./fonts/cormorant-latin-700-italic.woff2", weight: "700", style: "italic" },
+  ],
 });
 
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700", "800"],
+const montserrat = localFont({
   variable: "--font-montserrat",
   display: "swap",
+  src: [
+    { path: "./fonts/montserrat-latin-300-normal.woff2", weight: "300", style: "normal" },
+    { path: "./fonts/montserrat-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/montserrat-latin-500-normal.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/montserrat-latin-600-normal.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/montserrat-latin-700-normal.woff2", weight: "700", style: "normal" },
+    { path: "./fonts/montserrat-latin-800-normal.woff2", weight: "800", style: "normal" },
+  ],
 });
 
 import "./globals.css";
@@ -105,6 +122,10 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(eventJsonLd) }}
         />
+        <MetaPixel />
+        <Suspense fallback={null}>
+          <MetaPixelEvents />
+        </Suspense>
         <LanguageProvider>{children}</LanguageProvider>
       </body>
     </html>
