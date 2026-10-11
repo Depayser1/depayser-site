@@ -2,7 +2,7 @@
 
 import Script from "next/script";
 import { usePathname, useSearchParams } from "next/navigation";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 // ID do Meta Pixel (público — fica visível no navegador de qualquer forma).
 export const FB_PIXEL_ID = "1786509182494959";
@@ -14,10 +14,24 @@ declare global {
 }
 
 /**
- * Carrega o Meta Pixel uma única vez e dispara o 1º PageView.
+ * Carrega o Meta Pixel apenas APÓS o consentimento de cookies (GDPR).
+ * Fica invisível até o visitante clicar "Aceitar" (ou se já aceitou antes).
  * Renderize em app/layout.tsx, dentro do <body>.
  */
 export function MetaPixel() {
+  const [enabled, setEnabled] = useState(false);
+
+  useEffect(() => {
+    try {
+      if (localStorage.getItem("dp_consent") === "granted") setEnabled(true);
+    } catch {}
+    const onGrant = () => setEnabled(true);
+    window.addEventListener("dp-consent-granted", onGrant);
+    return () => window.removeEventListener("dp-consent-granted", onGrant);
+  }, []);
+
+  if (!enabled) return null;
+
   return (
     <>
       <Script

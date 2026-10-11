@@ -3,6 +3,55 @@
    Paleta e tipografia herdadas de globals.css
    ============================================================ */
 
+/* ---------- BANNER DE COOKIES ---------- */
+.cookie-banner {
+  position: fixed;
+  z-index: 60;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 18px;
+  width: min(680px, calc(100% - 32px));
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 15px 20px;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: linear-gradient(160deg, rgba(20, 31, 54, 0.97), rgba(7, 11, 18, 0.97));
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(6px);
+}
+.cookie-text {
+  margin: 0;
+  flex: 1;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  line-height: 1.45;
+  color: rgba(243, 236, 221, 0.82);
+}
+.cookie-actions { display: flex; gap: 10px; flex-shrink: 0; }
+.cookie-btn {
+  cursor: pointer;
+  border-radius: 10px;
+  padding: 9px 18px;
+  font-family: var(--font-sans);
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  border: 1px solid var(--champagne);
+  color: #07111f;
+  background: linear-gradient(135deg, var(--champagne-light), var(--champagne));
+  transition: filter var(--transition), transform var(--transition), background var(--transition);
+}
+.cookie-btn:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.cookie-btn.ghost { background: transparent; color: var(--champagne-light); border-color: var(--border); }
+.cookie-btn.ghost:hover { background: rgba(198, 160, 82, 0.1); }
+@media (max-width: 620px) {
+  .cookie-banner { flex-direction: column; align-items: stretch; gap: 12px; bottom: 12px; }
+  .cookie-actions { justify-content: flex-end; }
+}
+
 /* ---------- SELETOR DE IDIOMA ---------- */
 .lang-switcher {
   display: inline-flex;

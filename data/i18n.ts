@@ -126,6 +126,11 @@ const pt = {
     phrase: "Um movimento, não um evento.",
     sub: "Dépayser — sair do conhecido para descobrir uma nova perspectiva sobre a vida.",
   },
+  cookies: {
+    text: "Usamos cookies para melhorar sua experiência e medir nossas campanhas.",
+    accept: "Aceitar",
+    reject: "Recusar",
+  },
   conf: {
     nav: { academy: "Academy", palestrantes: "Palestrantes", programacao: "Programação", ingressos: "Ingressos", duvidas: "Dúvidas", cta: "Garantir ingresso" },
     dateLabel: "18 de outubro de 2026",
@@ -417,6 +422,11 @@ const fr: Dict = {
     phrase: "Un mouvement, pas un événement.",
     sub: "Dépayser — sortir du connu pour découvrir une nouvelle perspective sur la vie.",
   },
+  cookies: {
+    text: "Nous utilisons des cookies pour améliorer votre expérience et mesurer nos campagnes.",
+    accept: "Accepter",
+    reject: "Refuser",
+  },
   conf: {
     nav: { academy: "Academy", palestrantes: "Intervenants", programacao: "Programme", ingressos: "Billets", duvidas: "FAQ", cta: "Réserver ma place" },
     dateLabel: "18 octobre 2026",
@@ -705,6 +715,11 @@ const en: Dict = {
   brand: {
     phrase: "A movement, not an event.",
     sub: "Dépayser — leaving the familiar to discover a new perspective on life.",
+  },
+  cookies: {
+    text: "We use cookies to improve your experience and measure our campaigns.",
+    accept: "Accept",
+    reject: "Decline",
   },
   conf: {
     nav: { academy: "Academy", palestrantes: "Speakers", programacao: "Schedule", ingressos: "Tickets", duvidas: "FAQ", cta: "Get tickets" },

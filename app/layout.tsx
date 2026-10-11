@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 
 import { Suspense } from "react";
 
+import { CookieConsent } from "@/components/CookieConsent";
 import { LanguageProvider } from "@/components/LanguageProvider";
 import { MetaPixel, MetaPixelEvents } from "@/components/MetaPixel";
 import { siteConfig, tickets } from "@/data/site";
@@ -126,7 +127,10 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <MetaPixelEvents />
         </Suspense>
-        <LanguageProvider>{children}</LanguageProvider>
+        <LanguageProvider>
+          {children}
+          <CookieConsent />
+        </LanguageProvider>
       </body>
     </html>
   );
