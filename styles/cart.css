@@ -7,6 +7,9 @@
   margin:0 auto;
 }
 .cart-items { display:flex; flex-direction:column; gap:14px; }
+.cart-items-grid { max-width:1040px; margin:0 auto; }
+.cart-buy { align-self:center; white-space:nowrap; }
+.cart-secure-center { text-align:center; max-width:1040px; margin:16px auto 0; }
 
 .cart-row {
   display:grid;
@@ -160,6 +163,7 @@
   .cart-thumb { width:64px; grid-area:thumb; }
   .cart-info { grid-area:info; }
   .cart-stepper { grid-area:stepper; justify-self:start; }
+  .cart-buy { grid-area:stepper; justify-self:stretch; text-align:center; }
 }
 
 /* Espaço Kids (seção dedicada) */
